@@ -1,5 +1,11 @@
+//* desestructuramos la función router de express
 const { Router } = require('express')
-const { getUsuarios, putUsuarios, postUsuarios, deleteUsuarios } = require('../controllers/usuarios')
+const { 
+    getUsuarios, 
+    putUsuarios, 
+    postUsuarios, 
+    deleteUsuarios } = require('../controllers/usuarios')
+
 const router = Router()
 
 router.get('/', getUsuarios)

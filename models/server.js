@@ -3,7 +3,7 @@ const cors    = require('cors')
 
 class Server {
 
-    //? inicializa el server de express
+    //* inicializa el server de express
     constructor() {
         this.app  = express();
         this.port = process.env.PORT
@@ -12,20 +12,21 @@ class Server {
         this.routes();
     }
 
-    //? MIDDLEWARE
+    //* MIDDLEWARE
     middleware(){
-        //? CORS
+        //* CORS
         this.app.use(cors())
 
-        //? LECTURA Y PARSEO DEL BODY (UTIL PARA EL POST O PUT QUE RECIBE INFO)
+        //* LECTURA Y PARSEO DEL BODY (UTIL PARA EL POST O PUT QUE RECIBE INFO)
         this.app.use( express.json())
 
-        //? direcctorio publico, busca en esta carpeta el index.html
+        //* direcctorio publico, busca en esta carpeta el index.html
         this.app.use( express.static('public') )
     }
 
-    //? mis rutas definidas
+    //* mis rutas definidas
     routes() {
+        //* middleware condicionado por una ruta 
         this.app.use(this.usuariosPath, require('../routes/usuarios'))
     }
 

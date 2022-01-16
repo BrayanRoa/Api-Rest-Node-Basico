@@ -1,7 +1,7 @@
 const { response, request, query } = require('express')
 
-
 const getUsuarios = (req = request, res = response) => {
+    //* desestructurando los query que vienen en el path de la ruta
     const {nombre='no name', apellido='no last name'} = req.query
     res.json({
         ok: true,
@@ -12,6 +12,7 @@ const getUsuarios = (req = request, res = response) => {
 }
 
 const postUsuarios = (req, res = response) => {
+    //* desestructuro los datos que vienen en el body de la petición
     const { nombre, edad } = req.body;
 
     res.status(201).json({
@@ -22,6 +23,9 @@ const postUsuarios = (req, res = response) => {
 }
 
 const putUsuarios = (req, res = response) => {
+    
+    //* otra forma de obtenerlo es esta
+    //* const id = req.params.id
     const { id } = req.params
 
     res.json({
@@ -30,7 +34,6 @@ const putUsuarios = (req, res = response) => {
     })
 
 }
-
 
 const deleteUsuarios = (req, res) => {
     res.json({
